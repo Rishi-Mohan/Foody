@@ -18,3 +18,7 @@
 - Error Handling
 - also provide https
 - Tree shaking - remove unused code
+
+# Babel
+
+    - Convert JSX syntax to react syntax
