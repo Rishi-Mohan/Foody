@@ -1,12 +1,75 @@
-*** Har Har Mahadev ***
+**_ Har Har Mahadev _**
 
 ==================
 Generating Tokens:
 ==================
 https://levelup.gitconnected.com/fix-password-authentication-github-3395e579ce74
 
-
 ==================
 Configuration
 =================
 https://www.geeksforgeeks.org/how-to-install-configure-and-use-git-on-ubuntu/
+
+======================
+GitHub Local To Remote
+======================
+
+========================
+move to the folder where you want to create local repo
+
+Then,
+
+    	*	git init
+    	*	git status -> show some changes
+    	*	git add .
+    	*	git commit -m "msg"
+    	*	git add origin https://github.com/Rishi-Mohan/<RepoName>.git
+    	*	git remote -v -> two row should be print
+    	*	git remote set-url origin https://<githubtoken>@github.com/<username>/<repositoryname>.git
+    	*	git branch => to check branch
+    	*	git branch -m main => change master to main
+    	*	git push --force origin main => first time
+    	*	git push origin main => afterward if push
+
+Need to change branch master to main
+to check
+git branch => \*master
+
+Now change the name
+===========================================================================>
+To change master branch to main bracnh
+============================================================================
+
+First thing to do is to checkout the master branch if you didn’t already:
+
+==== git checkout master
+
+# Also be sure you have the latest changes
+
+==== git pull origin master
+
+Now you can rename the local branch with the following command:
+
+==== git branch -m main
+
+But now this change is only in your local git folder, what you need to do next is to push this the remote, which is as simple as to run this command:
+
+==== git push origin -u main
+
+===========================================================================
+To delete branch on the remote
+===========================================================================
+
+-> git push origin --delete <branchName>
+
+===========================================================================
+
+Command4:
+git add .
+Command5:
+git push --force origin main
+git push origin main
+
+    	!!! Error !!! [non fast forward errors]
+
+    	--> git pull origin <branch_name>
