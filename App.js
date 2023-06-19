@@ -1,5 +1,4 @@
 import React from "react";
-import { findDOMNode } from "react-dom";
 import ReactDOM from "react-dom/client";
 
 /**
@@ -37,7 +36,7 @@ const Header = () => {
   );
 };
 
-const RestaurentCard = () => {
+const RestaurentCard = (props) => {
   return (
     <div className="res-card">
       <img
@@ -45,8 +44,8 @@ const RestaurentCard = () => {
         alt="pizza"
         src="https://res.cloudinary.com/swiggy/image/upload/fl_lossy,f_auto,q_auto,w_508,h_320,c_fill/2b4f62d606d1b2bfba9ba9e5386fabb7"
       />
-      <h3>Pizza Hut</h3>
-      <h4>Italian, Global</h4>
+      <h3>{props.resName}</h3>
+      <h4>{props.cousine}</h4>
       <h4>4.1</h4>
       <h4>20 min</h4>
     </div>
@@ -57,22 +56,12 @@ const Body = () => {
     <div className="body">
       <div className="search">Search</div>
       <div className="res-container">
-        <RestaurentCard />
-        <RestaurentCard />
-        <RestaurentCard />
-        <RestaurentCard />
-        <RestaurentCard />
-        <RestaurentCard />
-        <RestaurentCard />
-        <RestaurentCard />
-        <RestaurentCard />
-        <RestaurentCard />
-        <RestaurentCard />
-        <RestaurentCard />
-        <RestaurentCard />
-        <RestaurentCard />
-        <RestaurentCard />
-        <RestaurentCard />
+        <RestaurentCard resName="Pizza Hut" cousine="Fast Food, Pizza" />
+        <RestaurentCard resName="KFC" cousine="Fast Food, Burger" />
+        <RestaurentCard
+          resName="Ashoka Biryani"
+          cousine="North Indian, Fast Food"
+        />
       </div>
     </div>
   );
