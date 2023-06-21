@@ -22,3 +22,22 @@
 # Babel
 
     - Convert JSX syntax to react syntax
+
+# Structure
+
+/\*\*
+
+- Header
+- - logo
+- - Nav Items
+- Body
+- - Search
+- - RestaurentContainer
+-         - RestaurentCard
+- Footer
+- - Copyright
+- - Links
+- - Address
+- - Contact
+    \*\*/
+
