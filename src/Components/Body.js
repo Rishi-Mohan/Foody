@@ -1,5 +1,6 @@
 import RestaurentCard from "./RestaurentCard";
 import { useEffect, useState } from "react";
+import Shimmer from "./Shimmer";
 
 const Body = () => {
   // State Variable
@@ -19,8 +20,14 @@ const Body = () => {
     const json = await data.json();
 
     // Api architecture as we only need cards data
-    setlistOfRestaurent(json.data.cards[2].data.data.cards);
+    // optional Chaining :- adding "?"
+    setlistOfRestaurent(json?.data?.cards[2]?.data?.data?.cards);
   };
+
+  // Conditional Rendering
+  if (listOfRestaurent.length === 0) {
+    return <Shimmer />; // calling shimer components
+  }
 
   return (
     <div className="body">
