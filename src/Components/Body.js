@@ -5,6 +5,8 @@ import Shimmer from "./Shimmer";
 const Body = () => {
   // State Variable
   const [listOfRestaurent, setlistOfRestaurent] = useState([]); // setting empty as default
+  const [filteredRestaurent, setFilteredRestaurent] = useState([]);
+  const [searchText, setsearchText] = useState("");
 
   // Another Hook
   useEffect(() => {
@@ -19,9 +21,9 @@ const Body = () => {
     // converting data into json file
     const json = await data.json();
 
-    // Api architecture as we only need cards data
     // optional Chaining :- adding "?"
     setlistOfRestaurent(json?.data?.cards[2]?.data?.data?.cards);
+    setFilteredRestaurent(json?.data?.cards[2]?.data?.data?.cards);
   };
 
   // Conditional Rendering
@@ -32,6 +34,24 @@ const Body = () => {
   return (
     <div className="body">
       <div className="filter">
+        <input
+          type="text"
+          className="search-box"
+          value={searchText}
+          onChange={(e) => {
+            setsearchText(e.target.value);
+          }}
+        ></input>
+        <button
+          onClick={() => {
+            const filteredRestaurent = listOfRestaurent.filter((res) =>
+              res.data.name.toLowerCase().includes(searchText.toLowerCase())
+            );
+            setFilteredRestaurent(filteredRestaurent);
+          }}
+        >
+          Search
+        </button>
         <button
           className="filter-btn"
           onClick={() => {
@@ -46,7 +66,7 @@ const Body = () => {
         </button>
       </div>
       <div className="res-container">
-        {listOfRestaurent.map((restaurent) => (
+        {filteredRestaurent.map((restaurent) => (
           <RestaurentCard key={restaurent.data.id} resData={restaurent} />
         ))}
       </div>
@@ -55,3 +75,7 @@ const Body = () => {
 };
 
 export default Body;
+
+/**
+ * body Component render each time when trigger funtion is called and it only update the changed value
+ * */
