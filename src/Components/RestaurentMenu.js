@@ -1,6 +1,7 @@
 import { useParams } from "react-router-dom";
 import Shimmer from "./Shimmer";
 import useRestaurentMenu from "../utils/useRestaurentMenu";
+import RestaurentCategory from "./RestaurentCategory";
 
 const RestaurentMenu = () => {
   const { resId } = useParams();
@@ -14,26 +15,29 @@ const RestaurentMenu = () => {
   const { itemCards } =
     resInfo?.cards[2]?.groupedCard?.cardGroupMap?.REGULAR?.cards[2]?.card?.card;
 
-  console.log(
-    resInfo?.cards[2]?.groupedCard?.cardGroupMap?.REGULAR?.cards[2]?.card?.card
-  );
+  const categories =
+    resInfo?.cards[2]?.groupedCard?.cardGroupMap?.REGULAR?.cards.filter(
+      (c) =>
+        c.card?.card?.["@type"] ==
+        "type.googleapis.com/swiggy.presentation.food.v2.ItemCategory"
+    );
 
   return (
-    <div className="menu">
-      <h1>{name}</h1>
-      <p>
+    <div className="text-center ">
+      <h1 className="text-2xl my-6 font-bold">{name}</h1>
+      <p className="font-bold text-lg">
         {cuisines.join(", ")} - {costForTwoMessage}
       </p>
-      <h2>Menu</h2>
-      <ul>
-        {itemCards.map((item) => (
-          <li key={item?.card?.info?.id}>
-            {item?.card?.info?.name} -{" Rs."}
-            {item?.card?.info?.price / 100 ||
-              item?.card?.info?.defaultPrice / 100}
-          </li>
-        ))}
-      </ul>
+      {/* We want to build  categories accordian style below this point */}
+      {categories.map((category) => (
+        <div>
+          <RestaurentCategory
+            key="category?.card?.card?.title"
+            data={category?.card?.card}
+          />
+          {/*here data is actually a prop that we are passing */}
+        </div>
+      ))}
     </div>
   );
 };
