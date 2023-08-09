@@ -1,10 +1,10 @@
 import ItemList from "./ItemList";
-import { useState } from "react";
 
-const RestaurentCategory = ({ data }) => {
-  const [showItems, setshowItems] = useState(false);
+const RestaurentCategory = ({ data, showItems }) => {
+  // **********Uncontrolled Components ***********
+  // const [showItems, setshowItems] = useState(false);
   const handleClick = () => {
-    setshowItems(!showItems);
+    //   setshowItems(!showItems);
   };
   return (
     <div>

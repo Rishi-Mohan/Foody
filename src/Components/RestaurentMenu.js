@@ -34,6 +34,7 @@ const RestaurentMenu = () => {
           <RestaurentCategory
             key="category?.card?.card?.title"
             data={category?.card?.card}
+            showItems={false}
           />
           {/*here data is actually a prop that we are passing */}
         </div>
