@@ -1,4 +1,5 @@
 # React Code
+    ![Home](https://github.com/Rishi-Mohan/Foody/assets/53253985/66c2de60-15a2-4bd5-8743-879da940ead8)
 
 # Parcel
 
