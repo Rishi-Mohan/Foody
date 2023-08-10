@@ -1,6 +1,7 @@
 # React Code
 
 # Parcel
+![Home](https://github.com/Rishi-Mohan/Foody/assets/53253985/29f55f79-a7c5-4239-bf50-98110cade899)
 
 - Dev Build
 - Local Server
