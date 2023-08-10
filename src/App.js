@@ -7,13 +7,18 @@ import ContactUs from "./Components/ContactUs";
 import Error from "./Components/Error";
 import RestaurentMenu from "./Components/RestaurentMenu";
 import { createBrowserRouter, RouterProvider, Outlet } from "react-router-dom";
+import { Provider } from "react-redux";
+import appStore from "./utils/appStore";
+import Cart from "./Components/Cart";
 
 const AppLayout = () => {
   return (
-    <div className="app">
-      <Header />
-      <Outlet />
-    </div>
+    <Provider store={appStore}>
+      <div className="app">
+        <Header />
+        <Outlet />
+      </div>
+    </Provider>
   );
 };
 
@@ -38,6 +43,10 @@ const appRouter = createBrowserRouter([
         path: "/restaurents/:resId",
         element: <RestaurentMenu />,
       },
+      {
+        path: "/cart",
+        element: <Cart />,
+      },
     ],
     errorElement: <Error />,
   },
@@ -45,3 +54,7 @@ const appRouter = createBrowserRouter([
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(<RouterProvider router={appRouter}></RouterProvider>);
+
+/**
+ * How to provide store to our app :- we will need a provider and need to wrap up app with this
+ */

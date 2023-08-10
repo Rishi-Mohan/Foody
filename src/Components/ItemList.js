@@ -1,6 +1,14 @@
+import { useDispatch } from "react-redux";
 import { CDN_URL } from "../utils/constants";
+import { addItem } from "../utils/cartSlice";
+
 const ItemList = ({ items }) => {
-  console.log(items);
+  const dispatch = useDispatch();
+  const handleAddItems = (item) => {
+    // Dispatch an action
+    dispatch(addItem(item));
+  };
+
   return (
     <div className="">
       {items.map((item) => (
@@ -22,9 +30,17 @@ const ItemList = ({ items }) => {
             <p className="text-xs w-10/12">{item?.card?.info?.description}</p>
           </div>
           <div className="flex-none">
+            <div className="absolute">
+              <button
+                className="p-2 mx-16 rounded-lg bg-black text-white shadow-lg"
+                onClick={() => handleAddItems(item)}
+              >
+                Add +
+              </button>
+            </div>
             <img
               src={CDN_URL + item.card.info.imageId}
-              className="w-auto h-28 rounded-lg transition ease-in-out delay-150 hover:-translate-y-1 hover:scale-110 duration-300 "
+              className="w-auto h-28 rounded-lg "
             ></img>
           </div>
         </div>
@@ -34,3 +50,5 @@ const ItemList = ({ items }) => {
 };
 
 export default ItemList;
+
+// transition ease-in-out delay-150 hover:-translate-y-1 hover:scale-110 duration-300 :- for hover effect in the image
