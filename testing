@@ -71,5 +71,19 @@ git push --force origin main
 git push origin main
 
     	!!! Error !!! [non fast forward errors]
+--> git pull origin <branch_name>
 
-    	--> git pull origin <branch_name>
+---------------------------------------------------------------------------------------------------
+create a new repository on the command line
+
+  git init
+  echo "Radha Krishna" >> file1.txt
+  git add .
+  git commit -m "first commit"
+  git branch -M main
+  git remote add origin https://github.com/Rishi-Mohan/<repo_name>.git
+  git remote set-url origin https://<githubtoken>@github.com/<username>/<repositoryname>.git
+  git push -u origin main
+  
+
+    	
