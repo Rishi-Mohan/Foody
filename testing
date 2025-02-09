@@ -84,3 +84,6 @@ create a new repository on the command line
     	!!! Error !!! [non fast forward errors]
 
     	--> git pull origin <branch_name>
+
+
+testing working of gitc
