@@ -85,5 +85,4 @@ create a new repository on the command line
 
     	--> git pull origin <branch_name>
 
-
-testing working of gitc
+fetch/XHR will give us all the api call from the network tab
