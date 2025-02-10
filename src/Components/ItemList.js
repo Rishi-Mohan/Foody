@@ -3,10 +3,22 @@ import { CDN_URL } from "../utils/constants";
 import { addItem } from "../utils/cartSlice";
 
 const ItemList = ({ items }) => {
+  // Redux
   const dispatch = useDispatch();
   const handleAddItems = (item) => {
-    // Dispatch an action
+    // Dispatch an action: here action is adding an item 
     dispatch(addItem(item));
+
+    // behind the schene when we call dispatch
+    /**
+     * it will create an object having payload as the label
+     * {
+     *    payload : item
+     * }
+     * 
+     * and this object is passed to the slice as the second argument (action) and we access
+     * this item as action.payload
+     */
   };
 
   return (

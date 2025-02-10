@@ -6,6 +6,7 @@ import { useSelector } from "react-redux";
 const Header = () => {
   const [btnNameReact, setbtnNameReact] = useState("Login");
 
+  // this hook is used to give access to the store
   const cartItems = useSelector((store) => store.cart.items);
   console.log(cartItems);
 

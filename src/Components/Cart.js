@@ -4,10 +4,14 @@ import { clearCart } from "../utils/cartSlice";
 import { useDispatch } from "react-redux";
 
 const Cart = () => {
+  // how to read the cart item? ANswer : we have to subscribe to the store 
+  // using useSelector
+
+  // always subscribe to the right portion of the store, we should avoid using subscribing whole store
   const cartItems = useSelector((store) => store.cart.items);
 
+  // when want some write action in the slice
   const dispatch = useDispatch();
-
   const handleClearCart = () => {
     dispatch(clearCart());
   };
@@ -32,3 +36,11 @@ const Cart = () => {
 };
 
 export default Cart;
+
+/**
+onClick = {add}: Passes the function reference to be called on click.
+
+onClick = {() => add(a)}: Passes an arrow function that calls add(a) on click, allowing you to pass arguments.
+
+onClick = {add(a)}: Incorrect usage; calls add(a) immediately on render, not on click.
+ */
